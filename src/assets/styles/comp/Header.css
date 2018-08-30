@@ -1,0 +1,27 @@
+header {
+    padding: 50px 20px 0 20px;
+    height: 10vh;
+    background-color: magenta;
+    display: flex;
+    justify-content: space-between;
+  }
+
+header img {
+    width: 100%;
+}
+
+.header {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left {
+    background-color: blue;
+    width: 30px;
+}
+
+.right {
+    background-color: green;
+    width: 135px;
+}
