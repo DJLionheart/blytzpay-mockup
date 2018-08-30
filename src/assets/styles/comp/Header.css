@@ -1,7 +1,6 @@
 header {
     padding: 50px 20px 0 20px;
     height: 10vh;
-    background-color: magenta;
     display: flex;
     justify-content: space-between;
   }
@@ -17,11 +16,11 @@ header img {
     align-items: center;
 }
 .left {
-    background-color: blue;
+    /* background-color: blue; */
     width: 30px;
 }
 
 .right {
-    background-color: green;
+    /* background-color: green; */
     width: 135px;
 }
