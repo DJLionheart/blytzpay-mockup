@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import reducer from './reducer';
+import billReducer from './billReducer';
 import menuReducer from './menuReducer';
 
 const combined = combineReducers({
-    billDetails: reducer,
+    billDetails: billReducer,
     menu: menuReducer
 })
 

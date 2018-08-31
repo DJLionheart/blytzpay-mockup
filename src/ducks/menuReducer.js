@@ -5,6 +5,7 @@ const initialState = {
 const TOGGLE_MENU = 'TOGGLE_MENU';
 
 export function toggle_menu() {
+    console.log('menu toggle!')
     return {
         type: TOGGLE_MENU
     }
@@ -14,9 +15,7 @@ export default function menuReducer(state = initialState, action) {
     switch(action.type) {
 
         case TOGGLE_MENU: 
-            let boolean;
-            state.menuOpen ? boolean = false : boolean = true;
-            return Object.assign({}, state, {menuOpen: boolean});
+            return Object.assign({}, state, {menuOpen: state.menuOpen ? false : true});
 
         default:
             return state;

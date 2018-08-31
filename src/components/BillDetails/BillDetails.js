@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { toggle_recurring } from '../../ducks/reducer';
+import { toggle_recurring } from '../../ducks/billReducer';
 
 import businessLogo from '../../assets/img/Square-Enix-logo.png';
 

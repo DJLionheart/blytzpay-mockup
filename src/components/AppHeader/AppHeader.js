@@ -65,12 +65,12 @@ function AppHeader(props) {
     return(
         <Header>
             <HeaderLeft>
-                <img src={menu} alt="menu"/>
+                <img src={menu} alt="menu" role="menu" onClick={ toggle_menu }/>
             </HeaderLeft>
             <HeaderRight>
                 <img src={logo} alt="BlytzPay logo"/>
             </HeaderRight>
-            {}
+            { props.menu.menuOpen ? <Menu/> : null }
         </Header>
     )
 }
