@@ -70,6 +70,7 @@ function AppHeader(props) {
             <HeaderRight>
                 <img src={logo} alt="BlytzPay logo"/>
             </HeaderRight>
+            {}
         </Header>
     )
 }
