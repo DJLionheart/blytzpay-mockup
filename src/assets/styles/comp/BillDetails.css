@@ -8,14 +8,14 @@ input {
     position: absolute;
     top: 0;
     left: 0;
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     background-color:rgb(195, 195, 195);
     border-radius: 3px;
 }
 
 input:checked ~ .checkmark {
-    background-color:  rgb(18, 230, 18);
+    background-color: rgb(126, 217, 0);
 }
 
 .checkmark::after {
@@ -29,8 +29,8 @@ input:checked ~ .checkmark::after {
 }
 
 .checkmark::after {
-    left: 7px;
-    top: 3px;
+    left: 6px;
+    top: 2px;
     width: 4px;
     height: 10px;
     border: solid white;

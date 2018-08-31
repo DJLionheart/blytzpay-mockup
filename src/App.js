@@ -6,6 +6,7 @@ import BillDetails from './components/BillDetails/BillDetails';
 import Payment from './components/Payment/Payment';
 
 import bg from './assets/img/new_mobile_background.png';
+import referenceImg from './assets/img/reference.png';
 
 import './assets/styles/reset.css';
 import './assets/styles/globalStyles.css';
@@ -15,7 +16,11 @@ const BlytzPayApp = styled.main`
   height: calc(100vh - 40px);
   border: 20px solid #1C1820;
   background-image: url(${bg});
-  background-size: 115%;
+  background-size: 110%;
+  background-position: 93% 10%;
+  background-blend-mode: hard-light;
+  background-color: #417575
+  /* overflow-y: scroll; */
 `;
 
 class App extends Component {
@@ -25,6 +30,7 @@ class App extends Component {
         <AppHeader/>
         <BillDetails/>
         <Payment/>       
+        /* <img src={referenceImg} alt="reference"/> */
       </BlytzPayApp>
     );
   }

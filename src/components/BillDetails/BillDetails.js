@@ -8,16 +8,16 @@ import '../../assets/styles/comp/BillDetails.css';
 
 const Details = styled.article`
     padding: 40px;
-    height: 47vh;
+    height: 51vh;
     /* background-color: magenta; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 `;
 
 const BusinessLogo = styled.section`
-    width: 80%;
+    width: 90%;
 `;
 
 const BillAmountSection = styled.section`
@@ -26,12 +26,15 @@ const BillAmountSection = styled.section`
 
 const ShadedBox = styled.section`
     padding: 15px;
-    margin-bottom: 5px;
-    color: rgb(18, 230, 18);
+    margin-bottom: 10px;
+    color: rgb(126, 217, 0);
     height: 90px;
     width: 65vw;
-    background-color: rgba(0, 0, 0, 0.198);
+    background-color: rgba(0, 0, 0, 0.11);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 `;
 
 const AmountHeading = styled.h5`
@@ -59,6 +62,7 @@ const CheckboxContainer = styled.label`
 
 const RecurringP = styled.p`
     margin: 2px 7px;
+    font-size: 11pt;
 `;
 
 const Checkbox = styled.input`

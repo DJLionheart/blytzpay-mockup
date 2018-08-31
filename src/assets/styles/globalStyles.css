@@ -2,8 +2,18 @@
 
 body {
   font-family: 'Open Sans', sans-serif; 
+  background-blend-mode: 
 }
 
 img {
   width: 100%;
+}
+
+.color_text {
+  color: rgb(83, 161, 235);
+}
+
+
+.color {
+  background-color: rgb(137, 208, 28);
 }
