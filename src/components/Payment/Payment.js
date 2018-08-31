@@ -193,7 +193,7 @@ function Payment(props) {
 
 function mapStateToProps(state) {
     return {
-        billDetails: state.billDetails
+        billDetails: state
     }
 }
 
