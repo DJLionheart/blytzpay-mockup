@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import AppHeader from './components/AppHeader/AppHeader';
 import BillDetails from './components/BillDetails/BillDetails';
 import Payment from './components/Payment/Payment';
+
+import { get_bill_details, get_new_method } from './ducks/reducer';
 
 import bg from './assets/img/new_mobile_background.png';
 // import referenceImg from './assets/img/reference.png';
@@ -24,6 +27,12 @@ const BlytzPayApp = styled.main`
 `;
 
 class App extends Component {
+  componentDidMount() {
+      // I would send the axios requests for bill/payment information here
+        
+      // get_bill_details() and get_new_method action creators for redux  
+  }
+
   render() {
     return (
       <BlytzPayApp>
@@ -35,4 +44,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return state
+}
+
+export default connect(mapStateToProps, { get_bill_details, get_new_method })(App);

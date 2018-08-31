@@ -148,7 +148,7 @@ function BillDetails(props) {
                     <TotalDueHeading>${billAmount}.00</TotalDueHeading>
                 </ShadedBox>
                 <RecurringInfo>
-                    <CheckboxContainer onClick={ toggle_recurring } role="checkbox">
+                    <CheckboxContainer onClick={ toggle_recurring } role="checkbox" aria-checked={ recurring }>
                         {
                             recurring ? <CheckedBox><Checkmark/></CheckedBox> : <UnCheckedBox/>
                         }
