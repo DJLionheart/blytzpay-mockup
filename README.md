@@ -12,7 +12,7 @@ Please let me know if you have any questions.
 
 ## Getting Started
 
-This probably goes without saying, but:
+This probably goes without saying ;)
 
 ```
 npm i 
