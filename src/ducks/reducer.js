@@ -3,11 +3,13 @@ import axios from 'axios';
 const initialState = {
     billAmount: 250,
     hashedPaymentMethod: 'Visa *** 3655',
-    paymentType: 'Credit/Debit Card'
+    paymentType: 'Credit/Debit Card',
+    recurring: true
 }
 
 const GET_BILL = 'GET_BILL_DETAILS'
     , GET_NEW_METHOD = 'GET_NEW_METHOD'
+    , TOGGLE_RECURRING = 'TOGGLE_RECURRING'
     , FULFILLED = '_FULFILLED';
 
 export function get_bill_details(billCode) {
@@ -33,9 +35,16 @@ export function get_new_method(billId, hashedCardCode = null) {
         }).catch(err => console.log('Error obtaining selected payment method: ', err));
     }
 
+
     return {
         type: GET_NEW_METHOD,
         payload: {result: result, type: !hashedCardCode ? 'Cash' : 'Credit/Debit Card'}
+    }
+}
+
+export function toggle_recurring() {
+    return {
+        type: TOGGLE_RECURRING
     }
 }
 
@@ -48,7 +57,10 @@ export default function reducer(state = initialState, action) {
         case GET_NEW_METHOD + FULFILLED:
             if(action.payload.type === 'Cash') {
                 return Object.assign({}, state, {hashedPaymentMethod: '', paymentType: action.payload.type})
-            } else return Object.assign({}, state, {hashedPaymentMethod: action.payload.result, paymentType: action.payload.type})
+            } else return Object.assign({}, state, {hashedPaymentMethod: action.payload.result, paymentType: action.payload.type});
+
+        case TOGGLE_RECURRING:
+            return Object.assign({}, state, {recurring: state.recurring ? false : true});
 
         default: return state;
     }

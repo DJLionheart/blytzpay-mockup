@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -11,6 +11,48 @@ const PaymentSection = styled.article`
     padding: 14px 0 0 0;
     height: 33vh;
     background-color: white;
+
+    @media only screen
+    and (min-device-height: 568px)
+    and (max-device-height: 568px) 
+    and (min-device-width: 320px)
+    and (max-device-width: 320px) {
+        height: 40vh;
+        padding: 12px 0 0 0;
+    }
+
+    @media only screen
+    and (min-device-height: 640px)
+    and (max-device-height: 640px) 
+    and (min-device-width: 360px)
+    and (max-device-width: 360px) {
+        height: 35vh;
+        padding: 10px 0 0 0;
+    }
+
+    @media only screen
+    and (min-device-height: 667px)
+    and (max-device-height: 667px) 
+    and (min-device-width: 375px)
+    and (max-device-width: 375px) {
+        height: 37vh;
+    }
+
+    @media only screen
+    and (min-device-height: 731px)
+    and (max-device-height: 731px) 
+    and (min-device-width: 411px)
+    and (max-device-width: 411px) {
+        height: 35vh;
+    }
+    
+    @media only screen
+    and (min-device-height: 736px)
+    and (max-device-height: 736px) 
+    and (min-device-width: 414px)
+    and (max-device-width: 414px) {
+        height: 37vh;
+    }
 `;
 
 const PaymentHeading = styled.h2`
@@ -60,6 +102,7 @@ const Chevron = styled.img`
 const PaymentMethodP = styled.p`
     color: black;
     font-size: 14pt;
+    font-weight: 300;
     letter-spacing: -1px;
 `;
 
@@ -75,11 +118,35 @@ const PaymentControls = styled.section`
     justify-content: space-around;
     align-items: center;
     height: 15vh;
+
+    @media only screen
+    and (min-device-height: 568px)
+    and (max-device-height: 568px) 
+    and (min-device-width: 320px)
+    and (max-device-width: 320px) {
+        height: 17vh;
+    }
+
+    @media only screen
+    and (min-device-height: 667px)
+    and (max-device-height: 667px) 
+    and (min-device-width: 375px)
+    and (max-device-width: 375px) {
+        height: 16vh;
+    }
+
+    @media only screen
+    and (min-device-height: 736px)
+    and (max-device-height: 736px) 
+    and (min-device-width: 414px)
+    and (max-device-width: 414px) {
+        height: 18vh;
+    }
 `;
 
 const AddMethod = styled.h3`
     color: rgb(83, 161, 235);
-    font-size: 11pt;
+    font-size: 12pt;
     text-decoration: underline;
 `;
 
@@ -90,7 +157,7 @@ const PaymentButton = styled.button`
     outline: none;
     color: white;
     font-weight: 600;
-    font-size: 22pt;
+    font-size: 20pt;
     text-shadow: 1px 1px 5px grey;
     background-color: rgb(147, 214, 0);
     border-radius: 10px;

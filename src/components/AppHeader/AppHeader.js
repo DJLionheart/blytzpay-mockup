@@ -11,6 +11,33 @@ const Header = styled.header`
     height: 10vh;
     display: flex;
     justify-content: space-between;
+
+    @media only screen
+    and (min-device-height: 568px)
+    and (max-device-height: 568px) 
+    and (min-device-width: 320px)
+    and (max-device-width: 320px) {
+        padding: 20px 10px;
+        height: 7vh;
+    }
+    
+    @media only screen
+    and (min-device-height: 640px)
+    and (max-device-height: 640px) 
+    and (min-device-width: 360px)
+    and (max-device-width: 360px) {
+        padding: 25px 15px;
+        height: 7vh;
+    }
+
+    @media only screen
+    and (min-device-height: 667px)
+    and (max-device-height: 667px) 
+    and (min-device-width: 375px)
+    and (max-device-width: 375px) {
+        padding: 30px 20px;
+        height: 7vh;
+    }
 `;
 
 const HeaderLeft = styled.section`

@@ -1,19 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 
 body {
-  font-family: 'Open Sans', sans-serif; 
-  background-blend-mode: 
+  font-family: 'Open Sans', sans-serif;  
 }
 
 img {
   width: 100%;
-}
-
-.color_text {
-  color: rgb(83, 161, 235);
-}
-
-
-.color {
-  background-color: rgb(137, 208, 28);
 }

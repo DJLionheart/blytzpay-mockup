@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
+import { toggle_recurring } from '../../ducks/reducer';
+
 import businessLogo from '../../assets/img/Square-Enix-logo.png';
 
-import '../../assets/styles/comp/BillDetails.css';
 
 const Details = styled.article`
     padding: 40px;
@@ -14,6 +15,38 @@ const Details = styled.article`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+    @media only screen
+    and (min-device-height: 568px)
+    and (max-device-height: 568px) 
+    and (min-device-width: 320px)
+    and (max-device-width: 320px) {
+        height: 46vh;
+    }
+
+    @media only screen
+    and (min-device-height: 667px)
+    and (max-device-height: 667px) 
+    and (min-device-width: 375px)
+    and (max-device-width: 375px) {
+        height: 48vh;
+    }
+
+    @media only screen
+    and (min-device-height: 731px)
+    and (max-device-height: 731px) 
+    and (min-device-width: 411px)
+    and (max-device-width: 411px) {
+        height: 47vh;
+    }
+
+    @media only screen
+    and (min-device-height: 736px)
+    and (max-device-height: 736px) 
+    and (min-device-width: 414px)
+    and (max-device-width: 414px) {
+        height: 45vh;
+    }
 `;
 
 const BusinessLogo = styled.section`
@@ -25,39 +58,38 @@ const BillAmountSection = styled.section`
 `;
 
 const ShadedBox = styled.section`
-    padding: 15px;
+    padding-bottom: 14px;
     margin-bottom: 10px;
     color: rgb(126, 217, 0);
-    height: 90px;
-    width: 65vw;
+    height: 100px;
+    width: 72vw;
     background-color: rgba(0, 0, 0, 0.11);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 `;
 
 const AmountHeading = styled.h5`
-    font-size: 19px;
+    font-size: 15pt;
     font-weight: 300;
     line-height: 19pt;
 `;
 
 const TotalDueHeading = styled.h1`
-    font-size: 35px;
+    font-size: 33pt;
     font-weight: 600;
-    letter-spacing: 2pt;
     line-height: 23pt;
 `;
 
 const CheckboxContainer = styled.label`
     padding-left: 12px;
+    margin-right: 10px;
     float: left;
     display: block;
     position: relative;
     height: 18px;
     width: 18px;
-    /* background-color: rgb(224, 224, 224); */
 `;
 
 const RecurringP = styled.p`
@@ -65,85 +97,69 @@ const RecurringP = styled.p`
     font-size: 11pt;
 `;
 
-const Checkbox = styled.input`
-    position: absolute;
-    opacity: 0;  
+const UnCheckedBox = styled.div`
+    position: relative;
+    background-color:rgb(195, 195, 195);
+    height: 18px;
+    width: 18px;
+    border-radius: 2px;
+`;
+
+const CheckedBox = styled.div`
+    position: relative;
+    position: relative;
+    background-color: rgb(126, 217, 0);
+    height: 18px;
+    width: 18px;
+    border-radius: 2px;
 `;
 
 const Checkmark = styled.span`
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color:rgb(195, 195, 195);
-    border-radius: 3px;
-    &:checked {
-        background-color:  rgb(18, 230, 18);
-    }
-
-    &::after {
-        content: "";
-        position: absolute;
-        display: none; 
-    }
+    left: 7px;
+    top: 3px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 `;
 
 const RecurringInfo = styled.span`
     display: flex;
     justify-content: center;
-    color: white;
+    color: #ffffff8c;
     font-weight: 300;
 `;
 
-class BillDetails extends Component {
-    constructor() {
-        super();
-        this.state = {
-            recurring: true
-        }
+function BillDetails(props) {
 
-        this.toggleCheckbox = this.toggleCheckbox.bind(this);
-    }
+    const { billDetails, toggle_recurring } = props
+        , { recurring, billAmount } = billDetails;
 
-    toggleCheckbox() {
-        this.setState({
-            recurring: !this.state.recurring
-        })
-    }
-
-    componentDidMount() {
-        /*
-        Before the page finishes loading, a call could be made here to load all the pertinent bill info: business logo, amount, etc.
-        */
-    }
-
-    render() {
-        const { recurring } = this.state
-            , { billAmount } = this.props.billDetails;
-
-        return(
-            <Details>
-                <BusinessLogo>
-                    <img src={businessLogo} alt="company logo"/>
-                </BusinessLogo>
-                <BillAmountSection>
-                    <ShadedBox>
-                        <AmountHeading>Amount Due</AmountHeading>
-                        <TotalDueHeading>${billAmount}.00</TotalDueHeading>
-                    </ShadedBox>
-                    <RecurringInfo>
-                        <CheckboxContainer>
-                            <input type="checkbox" checked={recurring} onChange={ this.toggleCheckbox }/>
-                            <span className="checkmark"></span> 
-                        </CheckboxContainer>
-                        <RecurringP>Make Recurring Payment</RecurringP>
-                    </RecurringInfo>
-                </BillAmountSection>
-            </Details>
-        )
-    }
+    return(
+        <Details>
+            <BusinessLogo>
+                <img src={businessLogo} alt="company logo"/>
+            </BusinessLogo>
+            <BillAmountSection>
+                <ShadedBox>
+                    <AmountHeading>Amount Due</AmountHeading>
+                    <TotalDueHeading>${billAmount}.00</TotalDueHeading>
+                </ShadedBox>
+                <RecurringInfo>
+                    <CheckboxContainer onClick={ toggle_recurring } role="checkbox">
+                        {
+                            recurring ? <CheckedBox><Checkmark/></CheckedBox> : <UnCheckedBox/>
+                        }
+                    </CheckboxContainer>
+                    <RecurringP>Make Recurring Payment</RecurringP>
+                </RecurringInfo>
+            </BillAmountSection>
+        </Details>
+    )
 }
+
 function mapStateToProps(state) {
     return {
         billDetails: state
@@ -151,4 +167,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(BillDetails);
+export default connect(mapStateToProps, { toggle_recurring })(BillDetails);
