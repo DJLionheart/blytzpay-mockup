@@ -1,58 +1,5 @@
-.bill_details {
-    padding: 40px;
-    height: 33vh;
-    /* background-color: magenta; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.business_logo {
-    width: 80%;
-}
-
-.bill_amount {
-    text-align: center;
-}
-
-.shaded_box {
-    padding: 15px;
-    margin-bottom: 5px;
-    color: rgb(18, 230, 18);
-    height: 60px;
-    width: 65vw;
-    background-color: rgba(0, 0, 0, 0.198);
-    border-radius: 10px;
-}
-
-#bill_heading {
-    margin: 0;
-    font-size: 19px;
-    font-weight: 300;
-    line-height: 19pt;
-}
-
-#amount {
-    margin: 0;
-    font-size: 35px;
-    font-weight: 600;
-    letter-spacing: 2pt;
-    line-height: 23pt;
-}
-
-.checkbox_container {
-    padding-left: 12px;
-    float: left;
-    display: block;
-    position: relative;
-    height: 18px;
-    width: 18px;
-    /* background-color: rgb(224, 224, 224); */
-}
-
-
-.checkbox_container input {
+input {
     position: absolute;
     opacity: 0;   
 }
@@ -67,7 +14,7 @@
     border-radius: 3px;
 }
 
-.checkbox_container input:checked ~ .checkmark {
+input:checked ~ .checkmark {
     background-color:  rgb(18, 230, 18);
 }
 
@@ -77,11 +24,11 @@
     display: none;
 }
 
-.checkbox_container input:checked ~ .checkmark::after {
+input:checked ~ .checkmark::after {
     display: block;
 }
 
-.checkbox_container .checkmark::after {
+.checkmark::after {
     left: 7px;
     top: 3px;
     width: 4px;
@@ -89,13 +36,6 @@
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
-}
-
-#recurring_info {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-weight: 300;
 }
 
 
