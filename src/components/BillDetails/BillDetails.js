@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import businessLogo from '../../assets/img/Square-Enix-logo.png';
 
@@ -93,8 +94,6 @@ class BillDetails extends Component {
     constructor() {
         super();
         this.state = {
-            businessLogo: businessLogo,
-            billAmount: 250,
             recurring: true
         }
 
@@ -114,7 +113,9 @@ class BillDetails extends Component {
     }
 
     render() {
-        const { businessLogo, billAmount, recurring } = this.state;
+        const { recurring } = this.state
+            , { billAmount } = this.props.billDetails;
+
         return(
             <Details>
                 <BusinessLogo>
@@ -131,12 +132,17 @@ class BillDetails extends Component {
                             <span className="checkmark"></span> 
                         </CheckboxContainer>
                         Make Recurring Payment
-                            
                     </RecurringInfo>
                 </BillAmountSection>
             </Details>
         )
     }
 }
+function mapStateToProps(state) {
+    return {
+        billDetails: state
+    }
+}
 
-export default BillDetails;
+
+export default connect(mapStateToProps)(BillDetails);

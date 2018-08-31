@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import cardIcon from '../../assets/img/card_icon_blue.png';
 import chevron from '../../assets/img/chevron_left_blue.png';
@@ -60,6 +61,12 @@ class Payment extends Component {
                 </PaymentMethod>
             </PaymentSection>
         )
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        billDetails: state
     }
 }
 
