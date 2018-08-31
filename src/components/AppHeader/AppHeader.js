@@ -7,7 +7,7 @@ import logo from '../../assets/img/logo_trademark.png';
 // import '../../assets/styles/comp/Header.css';
 
 const Header = styled.header`
-    padding: 50px 20px 0 20px;
+    padding: 50px 25px;
     height: 10vh;
     display: flex;
     justify-content: space-between;

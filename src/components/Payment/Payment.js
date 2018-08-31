@@ -14,6 +14,7 @@ const PaymentSection = styled.article`
 `;
 
 const PaymentHeading = styled.h2`
+    margin: 5px 0 15px 0;
     color:#026BB5;
     font-weight: 300;
     font-size: 18pt;
@@ -21,47 +22,76 @@ const PaymentHeading = styled.h2`
 `;
 
 const PaymentMethod = styled.section`
+    display: flex;
     height: 60px;
     padding: 5px;
     background-color: rgb(243, 242, 242);
 `;
 
 const CardIcon = styled.section`
-    width: 65px;
+    width: 16vw;
+    margin-right: 6px;
+`;
+
+const PaymentInfo = styled.section`
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`;
+
+const ButtonSection = styled.section`
+    color: blue;
+`;
+
+const DetailSection = styled.section`
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const Chevron = styled.img`
+    transform: scale(-1, -1);
+    width: 10px;
+`;
+
+const PaymentMethodP = styled.p`
+    color: black;
+    font-size: 14pt;
+`;
+
+const PaymentTypeP = styled.p`
+    color: grey;
+    font-weight: 300;
+`;
+
+const AddMethod = styled.h3`
+    
 `;
 
 
-class Payment extends Component {
-    constructor() {
-        super();
-        this.state = {
-            paymentMethod: 'Visa *** 3655',
-            paymentType: 'Credit/Debit Card',
-            billAmount: 250,
-        }
-    }
-
-    componentDidMount() {
-        /*
-        Load default payment information and bill amount.
-        */
-    }
-
-    render() {
-        const { paymentMethod, paymentType, billAmount } = this.state;
-        return(
-            <PaymentSection>
-                <section className="payment_details">
-                    <PaymentHeading>Pay With:</PaymentHeading>
-                </section>
-                <PaymentMethod>
-                    <CardIcon>
-                        <img src={cardIcon} alt="card icon"/>
-                    </CardIcon>
-                </PaymentMethod>
-            </PaymentSection>
-        )
-    }
+function Payment(props) {
+    const { hashedPaymentMethod, paymentType, billAmount } = props.billDetails;
+    return(
+        <PaymentSection>
+            <section className="payment_details">
+                <PaymentHeading>Pay With:</PaymentHeading>
+            </section>
+            <PaymentMethod>
+                <CardIcon>
+                    <img src={cardIcon} alt="card icon"/>
+                </CardIcon>
+                <DetailSection>
+                    <PaymentInfo>
+                        <PaymentMethodP>{ hashedPaymentMethod }</PaymentMethodP>
+                        <PaymentTypeP>{ paymentType }</PaymentTypeP>
+                    </PaymentInfo>
+                    <ButtonSection><Chevron src={chevron} alt="change button"/></ButtonSection>
+                </DetailSection>
+            </PaymentMethod>
+        </PaymentSection>
+    )
 }
 
 function mapStateToProps(state) {
@@ -70,4 +100,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default Payment;
+export default connect(mapStateToProps)(Payment);

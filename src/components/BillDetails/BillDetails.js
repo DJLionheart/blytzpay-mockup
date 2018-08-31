@@ -8,7 +8,7 @@ import '../../assets/styles/comp/BillDetails.css';
 
 const Details = styled.article`
     padding: 40px;
-    height: 33vh;
+    height: 47vh;
     /* background-color: magenta; */
     display: flex;
     flex-direction: column;
@@ -28,21 +28,19 @@ const ShadedBox = styled.section`
     padding: 15px;
     margin-bottom: 5px;
     color: rgb(18, 230, 18);
-    height: 60px;
+    height: 90px;
     width: 65vw;
     background-color: rgba(0, 0, 0, 0.198);
     border-radius: 10px;
 `;
 
 const AmountHeading = styled.h5`
-    margin: 0;
     font-size: 19px;
     font-weight: 300;
     line-height: 19pt;
 `;
 
 const TotalDueHeading = styled.h1`
-    margin: 0;
     font-size: 35px;
     font-weight: 600;
     letter-spacing: 2pt;
@@ -57,6 +55,10 @@ const CheckboxContainer = styled.label`
     height: 18px;
     width: 18px;
     /* background-color: rgb(224, 224, 224); */
+`;
+
+const RecurringP = styled.p`
+    margin: 2px 7px;
 `;
 
 const Checkbox = styled.input`
@@ -131,7 +133,7 @@ class BillDetails extends Component {
                             <input type="checkbox" checked={recurring} onChange={ this.toggleCheckbox }/>
                             <span className="checkmark"></span> 
                         </CheckboxContainer>
-                        Make Recurring Payment
+                        <RecurringP>Make Recurring Payment</RecurringP>
                     </RecurringInfo>
                 </BillAmountSection>
             </Details>
