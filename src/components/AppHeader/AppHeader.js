@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import { toggle_menu } from '../../ducks/menuReducer';
+import Menu from './Menu/Menu';
 
 import menu from '../../assets/img/menu_icon_white.png';
 import logo from '../../assets/img/logo_trademark.png';
@@ -57,7 +61,7 @@ const HeaderRight = styled.section`
 `;
 
 
-export default function AppHeader() {
+function AppHeader(props) {
     return(
         <Header>
             <HeaderLeft>
@@ -69,3 +73,11 @@ export default function AppHeader() {
         </Header>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        menu: state.menu
+    }
+}
+
+export default connect(mapStateToProps, { toggle_menu })(AppHeader);
